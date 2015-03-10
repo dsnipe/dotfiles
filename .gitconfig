@@ -1,0 +1,24 @@
+[user]
+	name = Dmitry Tymchuk
+	email = dsnipe@gmail.com
+[core]
+	excludesfile = /Users/dmitry/.gitignore_global
+	editor = /usr/bin/vim
+	autocrlf = input
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+;[push]
+  ;default = simple
+[push]
+	default = simple
+[alias]
+  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	today = log --since=midnight --author='Dmitry Tymchuk' --oneline
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f

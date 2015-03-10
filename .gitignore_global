@@ -1,0 +1,11 @@
+*~
+.DS_Store
+.idea
+*.sublime-*
+.gemtags
+sunspot-solr-development.log.lck
+solr
+.rbx
+sunspot-solr.pid
+test.sqlite3-journal
+.sass-cache
