@@ -1,17 +1,18 @@
 " Leader
 let mapleader = " "
+set encoding=utf-8
 
 set nocompatible
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
 set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
-set autoread      " Auto reload file on change
 set history=50
 set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+set autoread      " Auto reload file on change
 set cursorline    " show line under cursor
 set mouse=a       " using mouse in terminal
 set hidden        " allow Vim to manage multiple buffers effectively
@@ -66,9 +67,9 @@ augroup vimrcEx
   " Don't do it for commit messages, when the position is invalid, or when
   " inside an event handler (happens when dropping a file on gvim).
   autocmd BufReadPost *
-    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+        \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal g`\"" |
+        \ endif
 
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile Appraisals set filetype=ruby
@@ -76,7 +77,7 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif 
 
   " Enable spellchecking for Markdown
-  autocmd FileType markdown setlocal spell
+  " autocmd FileType markdown setlocal spell
 
   " Automatically wrap at 80 characters for Markdown
   autocmd BufRead,BufNewFile *.md setlocal textwidth=80
@@ -99,14 +100,26 @@ if executable('ag')
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden
-                                \ --ignore .git
-                                \ --ignore .DS_Store
-                                \ --ignore vendor/bundle
-                                \ -g ""'
+        \ --ignore .git
+        \ --ignore .DS_Store
+        \ --ignore vendor/bundle
+        \ -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll|aux|lof|log|lot|out|toc|jpg)$',
+    \ }
+" Mapping
+nnoremap <C-b> :CtrlPBuffer<cr>
+nnoremap od :CtrlPDir<cr>
+nnoremap ol :CtrlPLine<cr>
+nnoremap ot :CtrlPTag<cr>
 
 " Pastmode settings
 nnoremap <F4> :set invpaste paste?<CR>
@@ -147,17 +160,17 @@ set numberwidth=5
 " Tab completion
 " will insert tab at beginning of line,
 " will use completion if not at beginning
-set wildmode=list:longest,list:full
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <S-Tab> <c-n>
+" set wildmode=list:longest,list:full
+" function! InsertTabWrapper()
+"     let col = col('.') - 1
+"     if !col || getline('.')[col - 1] !~ '\k'
+"         return "\<tab>"
+"     else
+"         return "\<c-p>"
+"     endif
+" endfunction
+" inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+" inoremap <S-Tab> <c-n>
 
 " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
@@ -199,6 +212,42 @@ nnoremap <C-l> <C-w>l
 inoremap kj <ESC>
 nmap <silent> <leader>n :silent :nohlsearch<CR>
 nnoremap zw <C-W>o " Zoom Window 
+nnoremap <leader>w :w<cr>
+cmap w!! %!sudo tee > /dev/null %
+nnoremap <silent> <leader>so :source $MYVIMRC<cr>
+nmap Y  y$
+nnoremap ]t :tabn<CR>
+nnoremap [t :tabp<CR>
+vnoremap < <gv
+vnoremap > >gv
+
+nnoremap <leader>te :tabe <c-r>=expand("%:p:h")<cr>/
+nnoremap <leader>e :e <c-r>=expand("%:p:h")<cr>/
+nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+nnoremap <silent> <leader>ev :tabe $MYVIMRC<cr>
+nnoremap <leader>i mqHmwgg=G`wzt`q
+
+" Copy & paste to system clipboard with <Space>p and <Space>y:
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+"Easier search and replace
+" vnoremap gS "hy:%s/<c-r>h//gc<left><left><left>
+" nnoremap gS :%s/<c-r><c-w>//gc<left><left><left>
+vnoremap gS "hy:%S/<c-r>h//c<left><left>
+nnoremap gS :%S/<c-r><c-w>//c<left><left>
+"Easier substitute
+" vnoremap gs :s/\%V//g<left><left>
+" nnoremap gs :s/<c-r><c-w>//g<left><left>
+vnoremap gs :S/\%V//<left>
+nnoremap gs :S/<c-r><c-w>//<left><left>
+"Find with MultipleCursors
+vnoremap <c-f> :MultipleCursorsFind
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_always_populate_loc_list = 1
@@ -207,22 +256,75 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 
-" vim-airline
-let g:airline_powerline_fonts = 1 " Enable the patched Powerline fonts
-" let g:airline_section_x = '%{PencilMode()}'
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
-
-
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
 set spellfile=$HOME/.vim-spell-en.utf-8.add
 
 " Always use vertical diffs
 set diffopt+=vertical
+
+" -- Lightline settings -----------------------------------------------------------------
+"
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'mode_map': { 'c': 'NORMAL' },
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
+      \   'right': [ [ 'syntastic', 'lineinfo'  ], ['percent'], [ 'filetype' ]  ]
+      \ },
+      \ 'component_function': {
+      \   'modified': 'MyModified',
+      \   'readonly': 'MyReadonly',
+      \   'fugitive': 'MyFugitive',
+      \   'filename': 'MyFilename',
+      \   'fileformat': 'MyFileformat',
+      \   'filetype': 'MyFiletype',
+      \   'fileencoding': 'MyFileencoding',
+      \   'mode': 'MyMode',
+      \ },
+      \ 'subseparator': { 'left': "|", 'right': '|' }
+      \ }
+
+function! MyModified()
+  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! MyReadonly()
+  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? "\ue0a2" : ''
+endfunction
+
+function! MyFilename()
+  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() : 
+        \  &ft == 'unite' ? unite#get_status_string() : 
+        \  &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+function! MyFugitive()
+  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
+    let _ = fugitive#head()
+    return strlen(_) ? "\ue0a0 "._ : ''
+  endif
+  return ''
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! MyFileencoding()
+  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! MyMode()
+  return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
 
 " -- FUNCTIONS -----------------------------------------------------------------
 
