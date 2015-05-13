@@ -3,8 +3,6 @@ if &compatible
 end
 
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
 
 let b:plugins=expand("~/.vim/autoload/plug.vim", 1)
 let g:local = expand("~/.vimrc.local", 1)
@@ -20,39 +18,59 @@ if !filereadable(b:plugins)
  endif
 
 call plug#begin('~/.vim/bundle')
-" Let Vundle manage Vundle
-Plug 'gmarik/Vundle.vim'
-
 " Colorschcemes
 Plug 'w0ng/vim-hybrid'
+Plug 'altercation/vim-colors-solarized'
+Plug 'nanotech/jellybeans.vim'
+Plug 'jonathanfilip/vim-lucius'
+Plug 'flazz/vim-colorschemes'
 
 " Define bundles via Github repos
+" Plug 'tomtom/tlib_vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'christoomey/vim-run-interactive'
 Plug 'pbrisbin/vim-mkdir'
-Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'spf13/vim-autoclose'
 Plug 'vim-scripts/ctags.vim'
 Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/tComment'
+Plug 'tmux-plugins/vim-tmux'
 Plug 'vim-scripts/sudo.vim'
 Plug 'vim-scripts/ZoomWin'
 Plug 'vim-scripts/IndexedSearch'
 " Plug 'bling/vim-airline'
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
+if (has("python") || has("python3"))
+    Plug 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
+else
+    Plug 'bling/vim-airline'
+endif
+Plug 'bling/vim-bufferline'
+" Plug 'mbbill/undotree'
+Plug 'Yggdroot/indentLine'
+Plug 'gcmt/wildfire.vim'
 Plug 'ConradIrwin/vim-bracketed-paste'  " Automatic enable paste mode on pasting
+Plug 'osyo-manga/vim-over' " %s/ superpowers
 Plug 'airblade/vim-gitgutter'  " Show files modifications, using git
 Plug 'jiangmiao/auto-pairs'    " Autopairing for brackets, etc.
-Plug 'AndrewRadev/splitjoin.vim'  " split (gS) and join (gJ) statements
-Plug 'terryma/vim-multiple-cursors'
+Plug 'kristijanhusak/vim-multiple-cursors'
 
-" Unite and other 
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
+" General Programming {
+Plug 'mattn/gist-vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/syntastic'
+" }
+
+" Autocomplete and snippets
 Plug 'garbas/vim-snipmate'
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neosnippet.vim'
 Plug 'honza/vim-snippets'
 
 " File operations and search {{{
@@ -60,16 +78,32 @@ Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
+Plug 'gundo.vim'
 " }}}
 
 " Languages specific plugins {{{
+Plug 'elzr/vim-json'
+Plug 'pangloss/vim-javascript'
 Plug 'vim-scripts/nginx.vim'
 Plug 'kchmck/vim-coffee-script'
+
 Plug 'slim-template/vim-slim'
+Plug 'amirh/HTML-AutoCloseTag'
+Plug 'hail2u/vim-css3-syntax'
+
 Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
+
+Plug 'fatih/vim-go'               " Go Language
+
+Plug 'elixir-lang/vim-elixir'
+Plug 'carlosgaldino/elixir-snippets'
+Plug 'mattreduce/vim-mix'
+
+Plug 'tpope/vim-markdown'
 " }}}
 
 if filereadable(expand("~/.vimrc.bundles.local"))
