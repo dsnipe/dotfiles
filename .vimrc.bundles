@@ -34,15 +34,16 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'spf13/vim-autoclose'
+Plug 'tpope/vim-obsession'     " Session manager
+" Plug 'spf13/vim-autoclose'
 Plug 'vim-scripts/ctags.vim'
 Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/tComment'
 Plug 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux-focus-events'     " Fix autoread in TMUX sessions + more
 Plug 'vim-scripts/sudo.vim'
 Plug 'vim-scripts/ZoomWin'
 Plug 'vim-scripts/IndexedSearch'
-" Plug 'bling/vim-airline'
 " Plug 'itchyny/lightline.vim'
 if (has("python") || has("python3"))
     Plug 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
@@ -63,6 +64,7 @@ Plug 'kristijanhusak/vim-multiple-cursors'
 Plug 'mattn/gist-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
+Plug 'gregsexton/gitv'
 Plug 'scrooloose/syntastic'
 " }
 
@@ -79,7 +81,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
-Plug 'gundo.vim'
+Plug 'sjl/gundo.vim'
 " }}}
 
 " Languages specific plugins {{{
@@ -96,6 +98,9 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rbenv'
+Plug 'sunaku/vim-ruby-minitest'
+Plug 'skalnik/vim-vroom'
 
 Plug 'fatih/vim-go'               " Go Language
 

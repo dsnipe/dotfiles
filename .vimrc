@@ -13,7 +13,6 @@
         "set term=$TERM          " Make arrow and other keys work
     " endif
     filetype plugin indent on   " Automatically detect file types.
-    set nocompatible
     set autoread      " Auto reload file on change
     syntax on                   " Syntax highlighting
     set mouse=a                 " Automatically enable mouse usage
@@ -41,14 +40,14 @@
 
     " Fix Excape delay problem (autoclose plugin)
     " :verbose map <Esc> to check
-    if !has('gui_running')
-        set ttimeoutlen=10
-        augroup FastEscape
-            autocmd!
-            au InsertEnter * set timeoutlen=0
-            au InsertLeave * set timeoutlen=1000
-        augroup END
-    endif
+    " if !has('gui_running')
+    "     set ttimeoutlen=1000
+    "     augroup FastEscape
+    "         autocmd!
+    "         au InsertEnter * set timeoutlen=0
+    "         au InsertLeave * set timeoutlen=1000
+    "     augroup END
+    " endif
 
     " Automatically resize splits when resizing MacVim window
     if has("gui_running")
@@ -125,21 +124,22 @@
 
 " Vim UI {{{
     " Color scheme
-    " if filereadable($HOME . "/.vim/bundle/vim-hybrid/colors/hybrid.vim")
-    "   " let g:hybrid_use_iTerm_colors = 1
-    "   let g:hybrid_use_Xresources = 1
-    "   colorscheme hybrid
-    "   highlight Comment ctermfg=DarkGray
-    "   highlight CursorLine ctermbg=234
-    " endif
-    if filereadable($HOME . "/.vim/bundle/jellybeans.vim/colors/jellybeans.vim")
-      let g:jellybeans_background_color = '2c3643'
-      let g:jellybeans_background_color_256 = '234'
-      let g:jellybeans_use_lowcolor_black = 1
-      colorscheme jellybeans
-      " highlight Comment ctermfg=DarkGray
+    if filereadable($HOME . "/.vim/bundle/vim-hybrid/colors/hybrid.vim")
+      let g:hybrid_use_iTerm_colors = 1
+      let g:hybrid_use_Xresources = 1
+      colorscheme hybrid
+      " hi! Search term=underline cterm=underline
+      highlight Comment ctermfg=DarkGray
       highlight CursorLine ctermbg=235
     endif
+    " if filereadable($HOME . "/.vim/bundle/jellybeans.vim/colors/jellybeans.vim")
+    "   let g:jellybeans_background_color = '2c3643'
+    "   let g:jellybeans_background_color_256 = '234'
+    "   let g:jellybeans_use_lowcolor_black = 0
+    "   colorscheme jellybeans
+    "   " highlight Comment ctermfg=DarkGray
+    "   highlight CursorLine ctermbg=235
+    " endif
 
     " Change cursor shape in different modes in iTerm2
     if exists('$TMUX')
@@ -248,6 +248,7 @@
     " nnoremap <Right> :echoe "Use l"<CR>
     " nnoremap <Up> :echoe "Use k"<CR>
     " nnoremap <Down> :echoe "Use j"<CR>
+
     "
     " wrapped lines goes down/up to next row, rather than next line in file.
     " noremap j gj
@@ -256,7 +257,6 @@
     map <Up> gk
 
     inoremap kj <ESC>
-    nmap <silent> <leader>n :silent :nohlsearch<CR>
 
     " the following two lines conflict with moving to top and
     " bottom of the screen
@@ -282,7 +282,7 @@
 
     " most prefer to toggle search highlighting rather than clear the current
     " search results. to clear search highlighting rather than toggle it on
-    nmap <silent> <leader>/ :set invhlsearch<cr>
+    nmap <silent><leader>/ :set invhlsearch<cr>
 
     " find merge conflict markers
     map <leader>fc /\v^[<\|=>]{7}( .*\|$)<cr>
@@ -319,8 +319,8 @@
     " fullscreen mode for gvim and terminal, need 'wmctrl' in you path
     " map <silent> <f11> :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<cr>
 
-    nnoremap <c-j> myo<Esc>`y
-    nnoremap <c-k> myO<Esc>`y
+    nnoremap <CR> myo<Esc>`y
+    " nnoremap <c-k> myO<Esc>`y
 
     if has("gui_macvim") && has("gui_running")
        " Map command-[ and command-] to indenting or outdenting
@@ -370,7 +370,7 @@
       imap <D-8> <Esc>8gt
       map  <D-9> 9gt
       imap <D-9> <Esc>9gt
-      noremap <d-/> :TComment   
+      noremap <d-/> :TComment
     else
       " Map Control-# to switch tabs
       map  <C-0> 0gt
@@ -392,7 +392,7 @@
       map  <C-8> 8gt
       imap <C-8> <Esc>8gt
       map  <C-9> 9gt
-      imap <C-9> <Esc>9gt     
+      imap <C-9> <Esc>9gt
     endif
 " }}}
 
@@ -405,7 +405,7 @@
                 \setlocal omnifunc=syntaxcomplete#Complete |
                 \endif
         endif
-        
+
         hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
         hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
         hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
@@ -451,10 +451,10 @@
             let NERDTreeQuitOnOpen=1
             let NERDTreeMouseMode=2
             let NERDTreeShowHidden=0
-            let NERDTreeKeepTreeInNewTab=1
+            let NERDTreeKeepTreeInNewTab=0
             let g:nerdtree_tabs_open_on_gui_startup=0
- 
-            " TAB as opener in NERDTree 
+
+            " TAB as opener in NERDTree
             nnoremap <silent><tab> :call nerdtree#ui_glue#invokeKeyMap(g:NERDTreeMapActivateNode)<cr>
         endif
     " }
@@ -532,6 +532,8 @@
     let g:wildfire_objects = {
                 \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
                 \ "html,xml" : ["at"] }
+    map § <Plug>(wildfire-fuel)
+    vmap <C-§> <Plug>(wildfire-water)
     " }
 
     " Syntastic {
@@ -550,7 +552,7 @@
         let g:neocomplete#enable_auto_delimiter = 1
         let g:neocomplete#max_list = 5
         let g:neocomplete#force_overwrite_completefunc = 1
-        let g:neocomplete#auto_completion_start_length = 3
+        let g:neocomplete#auto_completion_start_length = 2
         let g:neocomplete#enable_auto_select = 1
 
         " Define dictionary.
@@ -594,7 +596,7 @@
                 endif
             endfunction
 
-            
+
             " <CR> close popup and save indent or expand snippet
             imap <expr><CR> CleverCr()
             " <C-h>, <BS>: close popup and delete backword char.
@@ -627,7 +629,7 @@
         let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
         let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
         let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-        
+
         " Enable omni-completion.
         autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
         autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -718,7 +720,6 @@ nnoremap <leader>a :call OpenInAtom()<CR>
 
 
 " Local config
-if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
-endif
-
+" if filereadable($HOME . "/.vimrc.local")
+"   source ~/.vimrc.local
+" endif
