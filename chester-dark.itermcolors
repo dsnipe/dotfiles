@@ -1,213 +1,190 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>Ansi 0 Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.039215687662363052</real>
-		<key>Green Component</key>
-		<real>0.039215687662363052</real>
-		<key>Red Component</key>
-		<real>0.039215687662363052</real>
-	</dict>
-	<key>Ansi 1 Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.28627450980392155</real>
-		<key>Green Component</key>
-		<real>0.27058823529411763</real>
-		<key>Red Component</key>
-		<real>0.96470588235294119</real>
-	</dict>
-	<key>Ansi 10 Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.47450980392156861</real>
-		<key>Green Component</key>
-		<real>0.76470588235294112</real>
-		<key>Red Component</key>
-		<real>0.074509803921568626</real>
-	</dict>
-	<key>Ansi 11 Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.31372549019607843</real>
-		<key>Green Component</key>
-		<real>0.94117647058823528</real>
-		<key>Red Component</key>
-		<real>0.99607843137254903</real>
-	</dict>
-	<key>Ansi 12 Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.88235294117647056</real>
-		<key>Green Component</key>
-		<real>0.68627450980392157</real>
-		<key>Red Component</key>
-		<real>0.46666666666666667</real>
-	</dict>
-	<key>Ansi 13 Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.4823529411764706</real>
-		<key>Green Component</key>
-		<real>0.2196078431372549</real>
-		<key>Red Component</key>
-		<real>0.69411764705882351</real>
-	</dict>
-	<key>Ansi 14 Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.68627450980392157</real>
-		<key>Green Component</key>
-		<real>0.85882352941176465</real>
-		<key>Red Component</key>
-		<real>0.054901960784313725</real>
-	</dict>
-	<key>Ansi 15 Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>1</real>
-		<key>Green Component</key>
-		<real>1</real>
-		<key>Red Component</key>
-		<real>1</real>
-	</dict>
-	<key>Ansi 2 Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.47843137254901963</real>
-		<key>Green Component</key>
-		<real>0.75686274509803919</real>
-		<key>Red Component</key>
-		<real>0.12156862745098039</real>
-	</dict>
-	<key>Ansi 3 Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.35294117647058826</real>
-		<key>Green Component</key>
-		<real>0.93725490196078431</real>
-		<key>Red Component</key>
-		<real>0.99607843137254903</real>
-	</dict>
-	<key>Ansi 4 Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.87058823529411766</real>
-		<key>Green Component</key>
-		<real>0.69019607843137254</real>
-		<key>Red Component</key>
-		<real>0.47450980392156861</real>
-	</dict>
-	<key>Ansi 5 Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.4823529411764706</real>
-		<key>Green Component</key>
-		<real>0.2196078431372549</real>
-		<key>Red Component</key>
-		<real>0.69411764705882351</real>
-	</dict>
-	<key>Ansi 6 Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.68627450980392157</real>
-		<key>Green Component</key>
-		<real>0.85882352941176465</real>
-		<key>Red Component</key>
-		<real>0.054901960784313725</real>
-	</dict>
-	<key>Ansi 7 Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.64313725490196083</real>
-		<key>Green Component</key>
-		<real>0.59607843137254901</real>
-		<key>Red Component</key>
-		<real>0.52941176470588236</real>
-	</dict>
-	<key>Ansi 8 Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.23529411852359772</real>
-		<key>Green Component</key>
-		<real>0.23529411852359772</real>
-		<key>Red Component</key>
-		<real>0.23529411852359772</real>
-	</dict>
-	<key>Ansi 9 Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.27058823529411763</real>
-		<key>Green Component</key>
-		<real>0.26666666666666666</real>
-		<key>Red Component</key>
-		<real>0.97647058823529409</real>
-	</dict>
-	<key>Background Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.18431372549019609</real>
-		<key>Green Component</key>
-		<real>0.14117647058823529</real>
-		<key>Red Component</key>
-		<real>0.11764705882352941</real>
-	</dict>
-	<key>Bold Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.039215687662363052</real>
-		<key>Green Component</key>
-		<real>0.039215687662363052</real>
-		<key>Red Component</key>
-		<real>0.039215687662363052</real>
-	</dict>
-	<key>Cursor Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.7764706015586853</real>
-		<key>Green Component</key>
-		<real>0.78431373834609985</real>
-		<key>Red Component</key>
-		<real>0.77254903316497803</real>
-	</dict>
-	<key>Cursor Text Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.12941177189350128</real>
-		<key>Green Component</key>
-		<real>0.12156862765550613</real>
-		<key>Red Component</key>
-		<real>0.11372549086809158</real>
-	</dict>
-	<key>Foreground Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.792156862745098</real>
-		<key>Green Component</key>
-		<real>0.7686274509803922</real>
-		<key>Red Component</key>
-		<real>0.72156862745098038</real>
-	</dict>
-	<key>Selected Text Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.039215687662363052</real>
-		<key>Green Component</key>
-		<real>0.039215687662363052</real>
-		<key>Red Component</key>
-		<real>0.039215687662363052</real>
-	</dict>
-	<key>Selection Color</key>
-	<dict>
-		<key>Blue Component</key>
-		<real>0.94117647409439087</real>
-		<key>Green Component</key>
-		<real>0.81568628549575806</real>
-		<key>Red Component</key>
-		<real>0.72156864404678345</real>
-	</dict>
-</dict>
-</plist>
+# List of plugins
+# Supports `github_username/repo` or full git repo URLs
+set -g @tpm_plugins '              \
+  tmux-plugins/tpm                 \
+  tmux-plugins/tmux-sensible       \
+  tmux-plugins/tmux-resurrect      \
+  tmux-plugins/tmux-copycat        \
+  tmux-plugins/tmux-open           \
+  tmux-plugins/tmux-sessionist     \
+  tmux-plugins/tmux-continuum      \
+'
+
+run-shell '~/.tmux/plugins/tpm/tpm'
+
+# enable mouse
+set -g mode-mouse on
+# Change cursor in vim to distinguish between insert and command mode
+set-option -g terminal-overrides '*88col*:colors=88,*256col*:colors=256,xterm*:XT:Ms=\E]52;%p1%s;%p2%s\007:Cc=\E]12;%p1%s\007:Cr=\E]112\007:Cs=\E]50;CursorShape=%?%p1%{3}%<%t%{0}%e%p1%{2}%-%;%d\007'
+# Act like Vim
+set-window-option -g mode-keys vi
+bind-key h select-pane -L
+bind-key j select-pane -D
+bind-key k select-pane -U
+bind-key l select-pane -R
+
+# Look good
+set-option -g default-terminal "xterm-256color"
+
+# Enable mouse support (works in iTerm)
+set-window-option -g mode-mouse on
+set-option -g mouse-select-pane on
+set-option -g mouse-resize-pane on
+set-option -g mouse-select-window on
+#
+# set up layouts
+# set main-pane-width 130
+
+###########################
+#  Configuration
+###########################
+
+ #use 256 term for pretty colors
+set -g default-terminal "screen-256color"
+
+# increase scroll-back history
+set -g history-limit 50000
+
+# use vim key bindings
+setw -g mode-keys vi
+
+# Setup 'v' to begin selection as in Vim
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+
+# decrease command delay (increases vim responsiveness)
+set -sg escape-time 0
+
+# increase repeat time for repeatable commands
+set -g repeat-time 1000
+
+# start window index at 1
+set -g base-index 1
+
+# start pane index at 1
+setw -g pane-base-index 1
+
+# highlight window when it has new activity
+# setw -g monitor-activity on
+# set -g visual-activity on
+
+# re-number windows when one is closed
+set -g renumber-windows on
+
+# enable pbcopy and pbpaste
+# https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/blob/master/README.md
+set-option -g default-command "reattach-to-user-namespace -l zsh"
+
+# Display tmux session name in the tab title
+set-option -g set-titles on
+set-option -g set-titles-string "#S:#{pane_current_command}"
+
+# Restore vim and neovim sessions
+set -g @resurrect-strategy-vim 'session'
+set -g @resurrect-strategy-nvim 'session'
+
+# Restore Bash history
+set -g @resurrect-save-bash-history 'on'
+set -g @resurrect-capture-pane-contents 'on'
+# set -g @resurrect-processes 'irb pry "~rails server" "~rails console"'
+
+# Automatic restore sessions
+set -g @continuum-restore 'on'
+set -g @continuum-boot-options 'iterm,fullscreen'
+
+###########################
+#  Key Bindings
+###########################
+
+# tmux prefix
+unbind C-b
+set -g prefix 'C-q'
+# set -g prefix C-a
+
+# Add a binding to toggle status line
+bind v set status
+
+# paste
+unbind C-p
+bind C-p paste-buffer
+
+# escape to copy-mode
+unbind [
+bind Escape copy-mode
+
+# window splitting
+unbind %
+bind | split-window -h
+unbind '"'
+bind - split-window -v
+
+# resize panes
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+# create 25% lower split
+unbind t
+bind-key t split-window -p 25
+
+# quickly switch panes and maximize
+unbind ^A
+bind ^A select-pane -t :.+ \; resize-pane -Z
+# bind ^A select-pane -t :.+
+
+# quickly switch panes and maximize
+unbind ^J
+bind ^J select-pane -t :.+
+
+# force a reload of the config file
+unbind r
+bind r source-file ~/.tmux.conf \; display "Reloaded!"
+
+# Make semicolon behave like colon
+bind-key \; command-prompt
+
+# Clear pane
+# bind k send-keys -R \; clear-history
+
+###########################
+# Status Bar
+###########################
+
+# enable UTF-8 support in status bar
+set -g status-utf8 on
+
+# set refresh interval for status bar
+set -g status-interval 30
+
+# top the status bar
+set-option -g status-position top
+
+# center the status bar
+set -g status-justify left
+
+# show session, window, pane in left status bar
+set -g status-left-length 40
+set -g status-left '#[fg=green]#S#[fg=blue] #I:#P#[default]'
+
+# show hostname, date, time, and battery in right status bar
+set-option -g status-right '#[fg=green]#H#[default] %m/%d/%y %I:%M\
+ #[fg=red]#(battery discharging)#[default]#(battery charging)'
+
+###########################
+# Colors
+###########################
+
+# color status bar
+set -g status-bg colour235
+set -g status-fg white
+
+# highlight current window
+set-window-option -g window-status-current-fg black
+set-window-option -g window-status-current-bg green
+
+# set color of active pane
+set -g pane-border-fg colour235
+set -g pane-border-bg black
+set -g pane-active-border-fg green
+set -g pane-active-border-bg black
