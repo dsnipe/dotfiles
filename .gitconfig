@@ -7,12 +7,10 @@
 	autocrlf = input
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-;[push]
-  ;default = simple
 [push]
 	default = simple
 [alias]
@@ -22,3 +20,13 @@
 	required = true
 	clean = git media clean %f
 	smudge = git media smudge %f
+[commit]
+	template = /Users/dmitry/.stCommitMsg
+[github]
+	oauth-token = 591365e9daa73fd14374e430c836e633326c8620
+	user = dsnipe
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
