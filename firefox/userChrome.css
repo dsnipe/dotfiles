@@ -1,0 +1,78 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#sidebar-box[sidebarcommand="_0ad88674-2b41-4cfb-99e3-e206c74a0076_-sidebar-action"] #sidebar-header {
+  visibility: collapse;
+}
+/* #tabbrowser-tabs { */
+/*   visibility: collapse; */
+/* } */
+/* #sidebar-box #sidebar-header * { */
+/*   margin-top: -3px !important; */
+/*   margin-bottom: -3px !important; */
+/* } */
+
+
+#TabsToolbar { visibility: collapse !important; }
+
+/* Windows users might also want to consider setting
+
+    browser.tabs.drawInTitlebar to false in about:config
+    */
+
+#tabbrowser-tabs {
+visibility: collapse !important;
+}
+
+/* #sidebar-box { */
+/* overflow: hidden; */
+/* min-width: 30px; */
+/* max-width: 30px; */
+/* position: fixed; */
+/* transition: all 0.5s ease; */
+/* } */
+
+/* #sidebar-box:hover, */
+/* #sidebar-header, */
+/* #sidebar { */
+/* min-width: 15vw !important; */
+/* max-width: 15vw !important; */
+/* } */
+
+/* #sidebar-header, */
+/* #sidebar-splitter { */
+/* display: none; */
+/* } */
+
+/* #sidebar-box[ordinal="4"] { */
+/* right: 0; */
+/* } */
+
+/* /\* */
+
+/*     ADJUST! */
+/*     You need to subtract the height of the panels above sidebar: nav bar, */
+/*     bokmarks bar, sidebar header, etc. -- whichever you have enabled. */
+/*     42px subtracted below is the height of the nav bar with default theme. */
+/*     I don't have bookmarks bar enabled, and sidebar header is hidden with */
+/*     CSS above, so this is all I need to do. */
+/*     Compact theme nav bar height is 29px btw, if you use that. */
+/*     *\/ */
+/*     #sidebar { */
+/*     height: calc(100vh - 42px); */
+/*     } */
+
+/* #appcontent { */
+/* margin-right: 30px; */
+/* } */
+
+/* #main-window[inFullscreen][inDOMFullscreen] #appcontent { */
+/* margin-right: 0; */
+/* } */
+
+/* #main-window[inFullscreen] #sidebar { */
+/* height: 100vh; */
+/* } */
+
+/* #sidebar-box #sidebar-header { */
+/*   visibility: collapse; */
+/* } */
