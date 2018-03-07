@@ -1,82 +1,97 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/dmtym/.oh-my-zsh
-ZSH_THEME="amuse" # bira
+# Allow [ or ] whereever you want
+unsetopt nomatch
+# Initialize zplug.
+source ~/.zplug/init.zsh
+# Themes
+# zplug "sindresorhus/pure", as:theme, use:"*.zsh"
+zplug "denysdovhan/spaceship-zsh-theme", use:spaceship.zsh, from:github, as:theme
+zplug "lib/completion", from:oh-my-zsh, lazy:true
+zplug "lib/history", from:oh-my-zsh, lazy:true
+# zplug "zsh-users/zsh-history-substring-search"
+zplug "lib/key-bindings", from:oh-my-zsh
+# zplug "lib/theme-and-appearance", from:oh-my-zsh
+zplug "lib/spectrum", from:oh-my-zsh, lazy:true
+zplug "plugins/git", from:oh-my-zsh, ignore:oh-my-zsh.sh, lazy:true
+zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# zplug "plugins/colorize", from:oh-my-zsh, ignore:ph-my-zsh.sh
+# zplug "plugins/chruby", from:oh-my-zsh, ignore:ph-my-zsh.sh, lazy:true, defer:1
+zplug "plugins/rails", from:oh-my-zsh, ignore:ph-my-zsh.sh, lazy:true, defer:3
+zplug "plugins/osx", from:oh-my-zsh, ignore:ph-my-zsh.sh, lazy:true, defer:1
+zplug "plugins/bundler", from:oh-my-zsh, ignore:ph-my-zsh.sh, lazy:true, defer:2
+zplug "plugins/mix", from:oh-my-zsh, ignore:ph-my-zsh.sh, lazy:true, defer:2
+zplug "plugins/command-not-found", from:oh-my-zsh, ignore:oh-my-zsh.sh, defer:3, lazy:true
+zplug "plugins/common-aliases", from:oh-my-zsh, ignore:oh-my-zsh.sh, defer:3
+zplug "djui/alias-tips"
+zplug "zsh-users/zsh-syntax-highlighting", defer:3
+zplug "Valiev/almostontop"
+# Check for uninstalled plugins.
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# Source plugins.
+zplug load # --verbose
+almostontop on
+# Theme setting
+SPACESHIP_TIME_SHOW=false
+# source $ZSH/oh-my-zsh.sh
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+# FileSearch
+function f() { find . -iname "*$1*" ${@:2} }
+function r() { ag "$1" ${@:2} -R . }
+function mkcd() { mkdir -p "$@" && cd "$_"; } # mkdir and cd
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git rbenv ruby rails osx bundler brew)
-
-# User configuration
-
-export PATH="/Users/dmitry/bin:/Users/dmitry/.rbenv/shims:/opt/X11/bin:/usr/local/MacGPG2/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:./node_modules/.bin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
+# Aliases
+alias c="clear"
+alias e="/Applications/Emacs.app/Contents/MacOS/Emacs" # run Emacs client in GUI
+alias em="emacsclient -nw" # run Emacs client in Terminal
+alias vim="em"
+# Use Emacs for editing config files
+alias zshconf="emacsclient -nw ~/.zshrc"
+alias envconf="emacsclient -nw ~/env.sh"
+alias be="bundle exec"
+alias bespec="bundle exec rspec"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+export PATH=/Users/dmitry/bin:/opt/X11/bin:/usr/local/MacGPG2/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:./node_modules/.bin:/usr/local/opt/go/libexec/bin:/usr/local/opt/go/libexec/bin:/usr/local//usr/local/mysql/bin/private/var/mysql/private/var/mysql/bin
+export MANPATH=/usr/local/man:$MANPATH
+export HOMEBREW_GITHUB_API_TOKEN="4fd3e26aa04ff5bf9453a8a4600d6f4342243485"
+export GOPATH=$HOME/Code/wetransfer/go_workspace
+
+
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='em'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
+chruby ruby-2.3.5
+
+# kiex, Elixir versions manager
+source $HOME/.kiex/elixirs/elixir-1.4.5.env
+[[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-alias c="clear"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
-# export JENV_ROOT=/usr/local/var/jenv
-if which jenv > /dev/null; then eval "$(jenv init -)"; fi
-# export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 function iterm2_print_user_vars() {
-  iterm2_set_user_var currentTime $(date +%H:%M:%S)
+    iterm2_set_user_var currentTime $(date +%H:%M:%S)
 }
+
+# added by travis gem
+# [ -f /Users/dmitry/.travis/travis.sh ] && source /Users/dmitry/.travis/travis.sh
+
+export PATH="$HOME/.yarn/bin:$PATH"
