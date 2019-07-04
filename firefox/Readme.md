@@ -1,32 +1,59 @@
-# FireFox modifications
-
-## userChrome.css
-Put `userChrome.css` to `/Library/Application Support/FireFox/Profiles/<profile_name>/chrome`. Create `chrome` folder if it doesn't exist.
-
-## TabCenter Redux Extension
-Additional CSS:  
-```
+Tab Center Redux
+.tab[notselectedsinceload="true"] {
+  font-style: italic;
+}
+/* Plasma 5's Breeze */
+body.dark-theme {
+  --tab-background-normal: hsl(210, 9.289%, 21.045%);
+  --tab-background-pinned: hsl(210, 9.289%, 21.045%);
+  --tab-background-active: hsl(221, 41.4%, 53.1%);
+  --tab-background-hover: hsl(222, 28.3%, 35.55%);
+  --tab-border-color: hsla(0, 0%, 0%, 0.06);
+  --menu-background: hsl(210, 9.289%, 21.045%);
+}
+#pinnedtablist {
+  box-shadow: 0px 1px 0px hsla(0, 0%, 0%, 0.2);
+  z-index: 1;
+}
+#pinnedtablist .tab:last-of-type {
+  border-bottom: none;
+}
 #newtab {
-  display: none;
+  margin-left: -1px;
 }
-/* close button in the left on hover */
-.tab:hover:not(.pinned) .tab-icon-wrapper {
-  opacity: 0;
+#newtab-icon {
+  margin-right: 8px !important;
 }
-.tab-close {
-    right: unset;
-    left: 5px;
+#searchbox {
+  padding: 0px;
 }
-.tab:hover > .tab-title-wrapper::after {
-  transform: translateX(36px);
+#newtab-label {
+  margin-left: 0px;
 }
-/* end */
-/* tab burst */
-.tab-loading-burst {
+#newtab-label.hidden {
+  display: block !important;
+  width: 0px;
+  margin-right: -10px;
+}
+.tab-context {
+  height: calc(100% + 1px);
+  position: relative;
+  top: 0.5px;
+}
+#pinnedtablist .tab:last-of-type .tab-context {
+  height: 100%;
+  top: 0px;
+}
+
+/* Loading burst */
+.tab-loading-burst, .tab-loading-burst:before {
   display: block;
 }
-/* end */
-#tablist-wrapper {
-border-left: 1px solid #e1e1e2;
+body.dark-theme .tab:not(.active) .tab-loading-burst.bursting::before {
+  filter: invert(100%);
 }
-```
+
+/* Hide close button */
+.tab-close {
+  left: -224px;
+  }
