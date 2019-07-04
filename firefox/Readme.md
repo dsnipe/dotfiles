@@ -1,4 +1,8 @@
-Tab Center Redux
+## Todo
+1. Copy `userChrome.css` to `\Library\Application Support\Firefox\profiles\<profile>\chrome\` (if folder `chrome` doesn't exist, create it). 
+2. Paste CSS below in settings of Tab Center Redux extension
+
+```css
 .tab[notselectedsinceload="true"] {
   font-style: italic;
 }
@@ -57,3 +61,4 @@ body.dark-theme .tab:not(.active) .tab-loading-burst.bursting::before {
 .tab-close {
   left: -224px;
   }
+```
